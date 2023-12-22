@@ -7,4 +7,4 @@
   <i><b>Add suffix and prefix in application.properties file for view name </b></i><br>
   <i><b>Add webapp and views folders in src/main/webapp/view. Create jsp files here </b></i><br>
   ![Screenshot (155)](https://github.com/SnehaVarshney11/SpringBoot/assets/78306516/88b941f1-48c4-41d4-8bf2-10fe9867af94)
-  <i><b>In pom.xml add tomcat-embed-jasper dependency </b></i><br>
+  <i><b>In pom.xml add tomcat-embed-jasper dependency otherwise It will not show the content of jsp page, it will download the file </b></i><br>
