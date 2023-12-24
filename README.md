@@ -17,11 +17,15 @@
 
 ## JPA (Java Persistence API)
 * Persistence means storing something permanently.
-* JPA is an ORM (Object Relational Mapping) tool. ORM is third-party tool, that will store the data and also convert the data (which is in table-row, col-based) into an object.
-* If we do not use ORM, we have to write the SQL query for db. Here ORM plays an important role, it will fetch the data from the table and convert it into an object. Here we don't have to write the SQL query. ORM will also convert the object into SQL.
+* JPA is an ORM (Object Relational Mapping) tool. ORM is a third-party tool, that will store the data and also convert the data (which is in table-row, col-based) into an object.
+* If we do not use ORM, we must write the SQL query for db. Here ORM plays an important role, it will fetch the data from the table and convert it into an object. Here we don't have to write the SQL query. ORM will also convert the object into SQL.
 * Hibernate is an implementation of JPA.
 * JPA provides us <b>EntityManagerFactory(provides EntityManager's object), EntityManager(provides CRUD operations).</b>
 
 ### How Spring Boot Makes it Easier to Perform Operations with JPA
 * Add spring-boot-starter-data-jpa dependency. It will configure all the dependencies automatically.
-* Now we have to perform some operations on a user (example) then create UserRepository (same as DAO) which extends CRUDRepository. If we don't want to extend the CRUDRepository, then we can use JPARepository which is a child of CRUDRepository that will provide more functionality. CRUDRepository and JPARepository both are interface. 
+* Now we have to perform some operations on a user (example) and then create UserRepository (same as DAO) which extends CRUDRepository. If we don't want to extend the CRUDRepository, then we can use JPARepository, a child of CRUDRepository that will provide more functionality. CRUDRepository and JPARepository are both interfaces.
+* While working on JPA project, we need to add dependencies of MySql driver, JPA, and web (if working on a web project)
+* To save and get the entities, we need to write a Repository interface for them which will be created in the DAO package.
+* JPA with Spring boot configuring database information in application.properties file.
+* Need to install MySql workbench. 
