@@ -3,6 +3,7 @@ package com.jpa.test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.boot.SpringApplication;
@@ -18,7 +19,7 @@ public class JpaExampleApplication {
 	public static void main(String[] args) {
 		ApplicationContext context = SpringApplication.run(JpaExampleApplication.class, args);
 		UserRepository ur = context.getBean(UserRepository.class);
-		
+		/*
 		// Create Object of User --------------------
 		User user1 = new User();
 		user1.setId(1);
@@ -45,7 +46,9 @@ public class JpaExampleApplication {
 		allUser.forEach(user -> {
 			System.out.println(user);
 		});
+		*/
 		
+		/*
 		// Update the user of id 2 -----------------
 		Optional<User> optional = ur.findById(1);
 		User user = optional.get();
@@ -55,11 +58,11 @@ public class JpaExampleApplication {
 		
 		System.out.println("UPDATE THE DATA -------");
 		System.out.println(updatedUser);
-		
+		*/
 		// Get the data -------------
 		//1. findById();
 		//2. findAl();
-		
+		/*
 		Iterable<User> it = ur.findAll();
 //		Iterator<User> iterator = it.iterator();
 		System.out.println("GET THE DATA -------");
@@ -69,8 +72,9 @@ public class JpaExampleApplication {
 //		}
 		
 		it.forEach(users -> System.out.println(users));
+		*/
 		
-		
+		/*
 		// Delete the user ---------
 		System.out.println("DELETE THE DATA -------");
 		ur.deleteById(1);
@@ -79,7 +83,12 @@ public class JpaExampleApplication {
         Iterable<User> remainingUsers = ur.findAll();
         System.out.println("REMAINING USERS AFTER DELETION -------");
         remainingUsers.forEach(users -> System.out.println(users));
+        */
 		
+		System.out.println("CUSTOM METHOD -------");
+        //List<User> u = ur.findByName("Shyam");
+        List<User> u = ur.findByNameAndCity("Ram", "Ayodhya");
+        u.forEach(e -> System.out.println(e));
 	}
 
 }
