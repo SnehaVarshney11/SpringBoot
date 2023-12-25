@@ -28,4 +28,75 @@
 * While working on JPA project, we need to add dependencies of MySql driver, JPA, and web (if working on a web project)
 * To save and get the entities, we need to write a Repository interface for them which will be created in the DAO package.
 * JPA with Spring boot configuring database information in application.properties file.
-* Need to install MySql workbench. 
+* Need to install MySql workbench.
+
+### STEPS to setting up a basic JPA example. (Code in JPAExample folder)
+1. Create an entity class(ex- user.java) define the properties (name, city etc.)
+```
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+ @Entity
+   public class User {
+
+     @Id
+     @GeneratedValue(strategy = GenerationType.IDENTITY)
+     private Long id;
+     private String name;
+     private String city;
+     private String status;
+    // Getters and setters, constructors, and other methods...
+    }
+
+```
+2. Create a Dao class (ex-UserRepository.java)
+```
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserRepository extends JpaRepository<User, Long> {
+    // Additional custom queries can be defined here if needed
+}
+```
+3. In application.properties file add all the imortant configurations.
+ ```
+spring.datasource.url=jdbc:mysql://localhost:3306/your_schema_name
+spring.datasource.username=your_mysql_username
+spring.datasource.password=your_mysql_password
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.jpa.hibernate.ddl-auto=update
+```
+4. Create schema in Mysql workbench.
+```
+You can create the schema manually or let Hibernate create it for you if spring.jpa.hibernate.ddl-auto=update is set. Be cautious with this in a production environment.
+```
+7. Create the object of entity to get all the properties which are defined in entity class.
+```
+package com.jpa.test;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+
+import com.jpa.test.dao.UserRepository;
+import com.jpa.test.entities.User;
+
+@SpringBootApplication
+public class JpaExampleApplication {
+
+	public static void main(String[] args) {
+		ApplicationContext context = SpringApplication.run(JpaExampleApplication.class, args);
+		UserRepository ur = context.getBean(UserRepository.class);
+		
+		User user = new User();
+		user.setName("Sneha");
+		user.setCity("Delhi");
+		user.setStatus("I am Java Programmer");
+		
+		User obj = ur.save(user);
+		System.out.println(obj);
+	}
+
+}
+```
