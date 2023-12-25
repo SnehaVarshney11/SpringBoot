@@ -84,11 +84,23 @@ public class JpaExampleApplication {
         System.out.println("REMAINING USERS AFTER DELETION -------");
         remainingUsers.forEach(users -> System.out.println(users));
         */
-		
+		/*
 		System.out.println("CUSTOM METHOD -------");
         //List<User> u = ur.findByName("Shyam");
         List<User> u = ur.findByNameAndCity("Ram", "Ayodhya");
         u.forEach(e -> System.out.println(e));
+        */
+		
+		System.out.println("Custom Query -> All User ------");
+		List<User> allUser = ur.getAllUser();
+		allUser.forEach(e -> System.out.println(e));
+		
+		System.out.println("Custom Query -> User By Name ------");
+		List<User> userByName = ur.getUserByName("Ram");
+		userByName.forEach(e -> System.out.println(e));
+		
+		System.out.println("Native Query");
+		ur.getUsers().forEach(e -> System.out.println(e));
 	}
 
 }
