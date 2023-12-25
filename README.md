@@ -100,3 +100,24 @@ public class JpaExampleApplication {
 
 }
 ```
+
+### Custom Finder Method
+* By default, CRUDRepository provides us find methods - findById(), findAll(), findAllById(). If we want to find data by name, by name and password, by name or password, starting/ending name by suffix/prefix. In this case, SpringBoot allows us to create custom methods or Derived Query Methods.
+* These methods will be created in the interface (UserRepository.java)
+* These methods work on JPQL (Java Persistence Query Language).
+```
+package com.jpa.test.dao;
+
+import java.util.List;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.jpa.test.entities.User;
+
+public interface UserRepository extends CrudRepository<User, Integer>{
+	// Custom Finder Method
+	public List<User> findByName(String name);
+	public List<User> findByNameAndCity(String name, String city);
+}
+```
+* <b>Supported Keywords</b> - <a href="https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html">DOCS</a>  
