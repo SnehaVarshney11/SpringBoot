@@ -147,3 +147,8 @@ public interface UserRepository extends CrudRepository<User, Integer>{
 	public List<User> getUsers();
 }
 ```
+
+## API
+* API means Application Programming Interface.
+* It is a set of rules that allows programs to talk to each other. The developers create the API on the server and allow the client to talk to it.
+* Example- In FaceBook/Instagram, we upload our pics. Pics are uploaded by using API.
