@@ -152,3 +152,19 @@ public interface UserRepository extends CrudRepository<User, Integer>{
 * API means Application Programming Interface.
 * It is a set of rules that allows programs to talk to each other. The developers create the API on the server and allow the client to talk to it.
 * Example- In FaceBook/Instagram, we upload our pics. Pics are uploaded by using API.
+### REST (Representational State Transfer) API
+* A set of constraints for creating web services(API). In simple words, It's a rule to create APIs.
+* It is a part of API.
+* Ex- Client-Server Architecture, Stateless Architecture, Cacheable, Layered etc.
+* <b>Rules - </b> The important methods of HTTP are-
+  1. GET- It reads a resource.
+  2. POST-It creates a new resource.
+  3. PUT- It updates an existing resource.
+  4. DELETE- It deletes a resource.
+  ![Screenshot (157)](https://github.com/SnehaVarshney11/SpringBoot/assets/78306516/5b4f7fef-ce0e-484f-96ce-8b4be9e04c05)"
+* HTTP also defined the following status-
+  1. 404 - Page/Resource not found
+  2. 200 - Success
+  3. 201 - Created
+  4. 401 - Unauthorized
+  5. 500 - Server Error
