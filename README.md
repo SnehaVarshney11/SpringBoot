@@ -168,3 +168,26 @@ public interface UserRepository extends CrudRepository<User, Integer>{
   3. 201 - Created
   4. 401 - Unauthorized
   5. 500 - Server Error
+* When there is any request on the server, will be handled by the controller.
+* While using rest API, use @RestController instead of @Controller
+ 
+## Spring Boot DevTools
+* DevTools stands for Development Tool. This tool aims to reduce the time of development while working on spring-boot. Spring boot dev tools pickup the changes and restart the application. 
+* Add a dependency in the pom.xml file.
+```
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-devtools</artifactId>
+	<Scope>runtime</scope>
+</dependency>
+```
+* Features -
+  1. Property Default - By using this tool, code will not be stored in cache memory. Sometimes we are providing color in our template and color doesn't work because of the cache and in this case, we have to clear the cache. This problem will be handled by this tool.
+  2. Automatic restart - After some changes, it will automatically restart the application.
+  3. Live Reload
+
+## Creation of API
+* There is a client called Postman. It will create, read, update, and delete the user (Ex- Book).
+1. READ -
+   ⭕ On the Server Side - Create the controller, it will process it and give a response in JSON format.
+   ⭕ On Client Side (Postman) - send URL - ip/books to a server, receive a response from server 
