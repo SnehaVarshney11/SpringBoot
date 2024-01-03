@@ -240,3 +240,31 @@ public interface UserRepository extends CrudRepository<User, Integer>{
     <td>200, 204, 206</td>
   </tr>
 </table>
+
+## How to connect Application with Database Using JPA
+* Add two dependencies -> Spring Data JPA, MYSQL Connector
+```
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+
+<dependency>
+	<groupId>mysql</groupId>
+	<artifactId>mysql-connector-java</artifactId>
+	<version>8.0.33</version>
+</dependency>
+```
+* Add @Entity, @Table(name = "books"), @Id and @GeneratedValue(strategy = GenerationType.AUTO) in entity Class
+* Open MySql Command Line and create a database. EX- create database spring;
+* In application.properties file add
+```
+server.port = 8081
+spring.datasource.name = spring_API
+spring.datasource.url = jdbc:mysql://localhost:8081/spring_API
+spring.datasource.username= root
+spring.datasource.password= root
+spring.datasource.driver-class-name= com.mysql.cj.jdbc.Driver
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL8Dialect
+spring.jpa.hibernate.ddl-auto = update
+```
