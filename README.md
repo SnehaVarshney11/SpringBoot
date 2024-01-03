@@ -188,6 +188,9 @@ public interface UserRepository extends CrudRepository<User, Integer>{
 
 ## Creation of API
 * There is a client called Postman. It will create, read, update, and delete the user (Ex- Book).
-1. READ -
-   ⭕ On the Server Side - Create the controller, it will process it and give a response in JSON format.
-   ⭕ On Client Side (Postman) - send URL - ip/books to a server, receive a response from server 
+1. READ - <br>
+   ⭕ On the Server Side - Create the controller, it will process it and give a response in JSON format. <br>
+   ⭕ On Client Side (Postman) - send URL - ip/books to a server, receive a response from the server. <br>
+   ⭕ Method will be GET. <br>
+1. CREATE - <br>
+   ⭕ IP Address - /name (ex- /books) but the method will be POST. <br>
