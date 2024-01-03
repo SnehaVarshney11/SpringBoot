@@ -30,4 +30,11 @@ public class BookService {
 		book = listBook.stream().filter(e->e.getId()==id).findFirst().get();
 		return book;
 	}
+	
+	// Creation ----------------------
+	//adding the book -  called by controller
+	public Book addBook(Book b) {
+		listBook.add(b);
+		return b;
+	}
 }
