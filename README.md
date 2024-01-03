@@ -192,5 +192,52 @@ public interface UserRepository extends CrudRepository<User, Integer>{
    ⭕ On the Server Side - Create the controller, it will process it and give a response in JSON format. <br>
    ⭕ On Client Side (Postman) - send URL - ip/books to a server, receive a response from the server. <br>
    ⭕ Method will be GET. <br>
-1. CREATE - <br>
+2. CREATE - <br>
    ⭕ IP Address - /name (ex- /books) but the method will be POST. <br>
+3. DELETE - <br>
+   ⭕ IP Address - /name/{id} but the method will be DELETE. <br>
+4. UPDATE - <br>
+   ⭕ IP Address - /name/{id} (ex- /books) but the method will be PUT. <br>
+
+## ResponseEntity
+* Used to handle HttpStatus while creating REST API.
+* Extension of HttpEntity that adds an HttpStatusCode status code.
+* Used in RestTemplate as well as in @Controller methods.
+<table>
+  <tr>
+    <th>Http method</th>
+    <th>URI</th>
+    <th>Description</th>
+    <th>Valid HTTP Status Code</th>
+  </tr>
+  <tr>
+    <td>POST</td>
+    <td>/books</td>
+    <td>Create a book</td>
+    <td>201</td>
+  </tr>
+  <tr>
+    <td>GET</td>
+    <td>/books/{bookId}</td>
+    <td>Read a Book</td>
+    <td>200</td>
+  </tr>
+  <tr>
+    <td>PUT</td>
+    <td>/books/{bookId}</td>
+    <td>Update a Book</td>
+    <td>200</td>
+  </tr>
+  <tr>
+    <td>DELETE</td>
+    <td>/books/{bookId}</td>
+    <td>Delete a Book</td>
+    <td>204</td>
+  </tr>
+  <tr>
+    <td>GET</td>
+    <td>/books</td>
+    <td>Retrive all Books</td>
+    <td>200, 204, 206</td>
+  </tr>
+</table>
