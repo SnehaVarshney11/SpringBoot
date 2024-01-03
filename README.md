@@ -192,5 +192,9 @@ public interface UserRepository extends CrudRepository<User, Integer>{
    ⭕ On the Server Side - Create the controller, it will process it and give a response in JSON format. <br>
    ⭕ On Client Side (Postman) - send URL - ip/books to a server, receive a response from the server. <br>
    ⭕ Method will be GET. <br>
-1. CREATE - <br>
+2. CREATE - <br>
    ⭕ IP Address - /name (ex- /books) but the method will be POST. <br>
+3. DELETE - <br>
+   ⭕ IP Address - /name/{id} but the method will be DELETE. <br>
+4. UPDATE - <br>
+   ⭕ IP Address - /name/{id} (ex- /books) but the method will be PUT. <br>
