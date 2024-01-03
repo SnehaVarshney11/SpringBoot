@@ -161,7 +161,6 @@ public interface UserRepository extends CrudRepository<User, Integer>{
   2. POST-It creates a new resource.
   3. PUT- It updates an existing resource.
   4. DELETE- It deletes a resource.
-  ![Screenshot (157)](https://github.com/SnehaVarshney11/SpringBoot/assets/78306516/5b4f7fef-ce0e-484f-96ce-8b4be9e04c05)"
 * HTTP also defined the following status-
   1. 404 - Page/Resource not found
   2. 200 - Success
