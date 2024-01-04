@@ -274,12 +274,17 @@ public interface UserRepository extends CrudRepository<User, Integer>{
 * Open MySql Command Line and create a database. EX- create database spring;
 * In application.properties file add
 ```
-server.port = 8081
-spring.datasource.name = spring_API
-spring.datasource.url = jdbc:mysql://localhost:8081/spring_API
+spring.datasource.name = spring_db
+spring.datasource.url = jdbc:mysql://localhost:3306/spring_db
 spring.datasource.username= root
 spring.datasource.password= root
 spring.datasource.driver-class-name= com.mysql.cj.jdbc.Driver
 spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL8Dialect
 spring.jpa.hibernate.ddl-auto = update
 ```
+* Create a Dao class (Ex- BookRepository) and extend the CRUDRepository in the file.
+* In the service file, create the object of  BookRepository by autowired;
+* Get the data -> using objName.findAll(), objName.findById(Id)
+* Create the data -> using save()
+* Delete the data -> using deleteById()
+* Update the data -> using save()
