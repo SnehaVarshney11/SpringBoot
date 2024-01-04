@@ -271,7 +271,7 @@ public interface UserRepository extends CrudRepository<User, Integer>{
 </dependency>
 ```
 * Add @Entity, @Table(name = "books"), @Id and @GeneratedValue(strategy = GenerationType.AUTO) in entity Class
-* Open MySql Command Line and create a database. EX- create database spring;
+* Open MySql Command Line and create a database. EX- create database spring_db;
 * In application.properties file add
 ```
 spring.datasource.name = spring_db
