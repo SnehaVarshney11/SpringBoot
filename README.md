@@ -1,4 +1,19 @@
 # SpringBoot
+* It is a module of spring from which we speed up the development.
+* It creates standalone, production-grade applications that you can just run.
+* It provides rapid development applications and automatic configuration.
+* It scans the classpath and finds the dependency it will automatically configure the things.
+* Spring framework + embedded server - configuration = Spring Boot
+* @SpringBootApplication - @Configurtion + @EnableAutoConfiguration + @ComponentScan.
+* We can declare the bean, auto-config enable and also scan the package
+* <b>Advantage</b> - creates a stand-alone application that can be started using jar, provide the server, automatically configure library, no requirement for XML 
+configuration
+
+## Ways to create a project
+1. create a maven project and add starter dependencies
+2. using spring initializr -> Download it and open it in Eclipse - Go to import - Existing Maven project - select the project and import it  
+3. use IDE like STS (Spring Tool Suite) -> Best Method
+4. Spring Boot CLI
 
 ## How to create JSP Views 
 * <b>STEPS</b> <br>
