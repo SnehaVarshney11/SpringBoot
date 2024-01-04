@@ -1,4 +1,19 @@
 # SpringBoot
+* It is a module of spring from which we speed up the development.
+* It creates standalone, production-grade applications that you can just run.
+* It provides rapid development applications and automatic configuration.
+* It scans the classpath and finds the dependency it will automatically configure the things.
+* Spring framework + embedded server - configuration = Spring Boot
+* @SpringBootApplication - @Configurtion + @EnableAutoConfiguration + @ComponentScan.
+* We can declare the bean, auto-config enable and also scan the package
+* <b>Advantage</b> - creates a stand-alone application that can be started using jar, provide the server, automatically configure library, no requirement for XML 
+configuration
+
+## Ways to create a project
+1. create a maven project and add starter dependencies
+2. using spring initializr -> Download it and open it in Eclipse - Go to import - Existing Maven project - select the project and import it  
+3. use IDE like STS (Spring Tool Suite) -> Best Method
+4. Spring Boot CLI
 
 ## How to create JSP Views 
 * <b>STEPS</b> <br>
@@ -161,7 +176,6 @@ public interface UserRepository extends CrudRepository<User, Integer>{
   2. POST-It creates a new resource.
   3. PUT- It updates an existing resource.
   4. DELETE- It deletes a resource.
-  ![Screenshot (157)](https://github.com/SnehaVarshney11/SpringBoot/assets/78306516/5b4f7fef-ce0e-484f-96ce-8b4be9e04c05)"
 * HTTP also defined the following status-
   1. 404 - Page/Resource not found
   2. 200 - Success
@@ -241,3 +255,36 @@ public interface UserRepository extends CrudRepository<User, Integer>{
     <td>200, 204, 206</td>
   </tr>
 </table>
+
+## How to connect Application with Database Using JPA
+* Add two dependencies -> Spring Data JPA, MYSQL Connector
+```
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+
+<dependency>
+	<groupId>mysql</groupId>
+	<artifactId>mysql-connector-java</artifactId>
+	<version>8.0.33</version>
+</dependency>
+```
+* Add @Entity, @Table(name = "books"), @Id and @GeneratedValue(strategy = GenerationType.AUTO) in entity Class
+* Open MySql Command Line and create a database. EX- create database spring_db;
+* In application.properties file add
+```
+spring.datasource.name = spring_db
+spring.datasource.url = jdbc:mysql://localhost:3306/spring_db
+spring.datasource.username= root
+spring.datasource.password= root
+spring.datasource.driver-class-name= com.mysql.cj.jdbc.Driver
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL8Dialect
+spring.jpa.hibernate.ddl-auto = update
+```
+* Create a Dao class (Ex- BookRepository) and extend the CRUDRepository in the file.
+* In the service file, create the object of  BookRepository by autowired;
+* Get the data -> using objName.findAll(), objName.findById(Id)
+* Create the data -> using save()
+* Delete the data -> using deleteById()
+* Update the data -> using save()
