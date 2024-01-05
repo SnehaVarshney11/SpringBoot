@@ -328,3 +328,7 @@ public class Child {
     // Other fields and methods
 }
 ```
+
+## Upload a file 
+In PostMan - 
+* Select POST as a method -> Go to body -> select form-data -> select file as a key -> Give key name and upload image as value 
