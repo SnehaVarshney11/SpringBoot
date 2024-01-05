@@ -1,10 +1,16 @@
 package com.test.Entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
+
+//NESTING CUSTOM -----------------
 
 @Entity
 public class Author {
@@ -18,6 +24,9 @@ public class Author {
 	private String lastName;
 	@Column(name = "Language")
 	private String language;
+	@OneToOne(mappedBy = "author")
+	@JsonBackReference
+	private Book book;
 	
 	public Author(int authId, String firstName, String lastName, String language) {
 		super();
@@ -26,11 +35,7 @@ public class Author {
 		this.lastName = lastName;
 		this.language = language;
 	}
-	   public Author(String firstName, String lastName, String language) {
-	        this.firstName = firstName;
-	        this.lastName = lastName;
-	        this.language = language;
-	    }
+	
 	public Author() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -59,6 +64,15 @@ public class Author {
 	public void setLanguage(String language) {
 		this.language = language;
 	}
+	
+	public Book getBook() {
+		return book;
+	}
+
+	public void setBook(Book book) {
+		this.book = book;
+	}
+
 	@Override
 	public String toString() {
 		return "Author [authId=" + authId + ", firstName=" + firstName + ", lastName=" + lastName + ", language="

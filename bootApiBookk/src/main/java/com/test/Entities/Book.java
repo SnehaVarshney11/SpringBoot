@@ -1,6 +1,8 @@
 // Book.java
 package com.test.Entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -19,6 +21,7 @@ public class Book {
     private int id;
     private String title;
     @OneToOne(cascade = CascadeType.ALL) //Cascade will automatically save or delete the author
+    @JsonManagedReference 
     private Author author;
 
     public Book(int id, String title, Author author) {
