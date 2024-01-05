@@ -288,3 +288,43 @@ spring.jpa.hibernate.ddl-auto = update
 * Create the data -> using save()
 * Delete the data -> using deleteById()
 * Update the data -> using save()
+
+### Difference Between @JsonManagedReference & @JsonBackReference
+@JsonManagedReference:
+* Used on the "owning" side of the relationship, i.e., the side that manages the relationship (controls the foreign key).
+* Indicates that the annotated property should be serialized normally (included in the JSON output) and also serves as the forward part of the reference.
+* When using @JsonManagedReference, Jackson will include the property marked with this annotation during serialization.
+```
+@Entity
+public class Parent {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "parent")
+    private List<Child> children;
+
+    // Other fields and methods
+}
+```
+@JsonBackReference:
+* Used on the "non-owning" side of the relationship, i.e., the side that is not responsible for managing the relationship.
+* Indicates that the annotated property should be ignored during serialization to avoid infinite recursion.
+* When using @JsonBackReference, Jackson will not include the property marked with this annotation during serialization.
+```
+@Entity
+public class Child {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @JsonBackReference
+    @ManyToOne
+    private Parent parent;
+
+    // Other fields and methods
+}
+```
