@@ -329,6 +329,79 @@ public class Child {
 }
 ```
 
-## Upload a file 
-In PostMan - 
-* Select POST as a method -> Go to body -> select form-data -> select file as a key -> Give key name and upload image as value 
+## Upload a file in a Directory
+In PostMan - <br>
+Select POST as a method -> Go to body -> select form-data -> select file as a key -> Give key name and upload image as value <br>
+In SpringBoot <br>
+There are two methods- <br>
+```
+Helper Class
+@Component
+public class FileUploadHelper {
+public final String UPLOAD_DIR = "C:\\Users\\hp\\eclipse-workspace\\FileUpload\\src\\main\\resources\\static\\Image"; //This is the path where you want to store the file
+	
+	public boolean uploadFile(MultipartFile file) {
+		
+		boolean uploadStatus = false;
+		
+		try {
+`			FIRST METHOD ---------------------------
+			//Read file
+			InputStream is = file.getInputStream();
+			byte data[] = new byte[is.available()];
+			is.read();
+			
+			//Write file
+			FileOutputStream op = new FileOutputStream(UPLOAD_DIR + "\\" + file.getOriginalFilename());
+			op.write(data);
+			op.flush();
+			op.close();
+
+			SECOND METHOD ----------------------------------
+			Files.copy(file.getInputStream(), Paths.get(UPLOAD_DIR + "\\" + file.getOriginalFilename()) , StandardCopyOption.REPLACE_EXISTING);
+			
+			uploadStatus = true;
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			uploadStatus =  false;
+		}
+		
+		return uploadStatus;
+		
+	}
+}
+
+```
+```
+Controller Class----
+@RestController
+public class FileUploadController {
+	@Autowired
+	private FileUploadHelper fileUploadHelper;
+	
+	@PostMapping("/upload-file")
+	public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file) {
+		//File Upload Code
+		try {
+			//file upload Code
+			boolean status = fileUploadHelper.uploadFile(file);
+			
+			if(status) {
+				return ResponseEntity.ok("File is successfully uploaded");
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error in uploading file");
+	}
+}
+```
+* Add dependencies in application.properties file
+```
+spring.servlet.multipart.enabled= true
+spring.servlet.multipart.max-file-size = 300MB
+spring.servlet.multipart.file-size-threshold = 1KB
+```
