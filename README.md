@@ -330,6 +330,7 @@ public class Child {
 ```
 
 ## Upload a file in a Directory
+### 1. In Static Path
 In PostMan - <br>
 Select POST as a method -> Go to body -> select form-data -> select file as a key -> Give key name and upload image as value <br>
 In SpringBoot <br>
@@ -404,4 +405,14 @@ public class FileUploadController {
 spring.servlet.multipart.enabled= true
 spring.servlet.multipart.max-file-size = 300MB
 spring.servlet.multipart.file-size-threshold = 1KB
+```
+### 2. In Dynamic Path
+* We use ClassPathResource to get images in a dynamic path.
+* It will work when the constructor is called.
+```
+public final String UPLOAD_DIR = new ClassPathResource("/static/Image").getFile().getAbsolutePath();
+```
+* In Controller Class, return
+```
+return ResponseEntity.ok(ServletUriComponentsBuilder.fromCurrentContextPath().path("/Image/").path(file.getOriginalFilename()).toUriString());
 ```
