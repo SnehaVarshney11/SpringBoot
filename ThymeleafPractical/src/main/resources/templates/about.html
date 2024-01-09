@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>About Thymeleaf</h1>
+	<h2 th:text="${name}"></h2>
+	<h2 th:text="${ #strings.toUpperCase(name) }"></h2>
+	
+	<!-- Create variables -->
+	<div th:with="a=5, b=10, n=${name}">
+		<h3>The value of a is <span th:text="${a}"></span></h3>
+		<h3 th:text="'The value of b is' + ${b}"></h3>
+		<h3>The value of n is <span th:text="${n}"></span></h3>
+	</div> 
+</body>
+</html>
