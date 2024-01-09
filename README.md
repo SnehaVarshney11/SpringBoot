@@ -425,7 +425,9 @@ return ResponseEntity.ok(ServletUriComponentsBuilder.fromCurrentContextPath().pa
 * Rendering (Evaluation of dynamic content) will be on the server side.
 * Mostly used to generate HTML views for web applications.
 * Thymeleaf template = HTML + Thymeleaf Expression -> Can access Java Code, Object, and Spring beans.
+* Add two dependencies-> spring web and thymeleaf 
 * The Thymeleaf engine will parse thymeleaf template.
 ```
 <p th:text="${name}">
 ```
+* Install it -> <a href="https://www.thymeleaf.org/eclipse-plugin-update-site/">LINK</a>
