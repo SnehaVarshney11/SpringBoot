@@ -416,3 +416,16 @@ public final String UPLOAD_DIR = new ClassPathResource("/static/Image").getFile(
 ```
 return ResponseEntity.ok(ServletUriComponentsBuilder.fromCurrentContextPath().path("/Image/").path(file.getOriginalFilename()).toUriString());
 ```
+
+## Thymeleaf
+* Thymeleaf is a modern server-side Java template engine for both web and stand-alone environments, capable of processing HTML, XML, JavaScript, CSS, and even plain text.
+* It is used in spring-boot in place of jsp. We can use JSP also but Thymleaf is a modern way to create html templates. 
+* The goal is to provide an elegant and highly maintainable way of creating templates.
+* It is similar to HTML. Extension of thymeleaf file is .html 
+* Rendering (Evaluation of dynamic content) will be on the server side.
+* Mostly used to generate HTML views for web applications.
+* Thymeleaf template = HTML + Thymeleaf Expression -> Can access Java Code, Object, and Spring beans.
+* The Thymeleaf engine will parse thymeleaf template.
+```
+<p th:text="${name}">
+```
