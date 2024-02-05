@@ -442,4 +442,7 @@ return ResponseEntity.ok(ServletUriComponentsBuilder.fromCurrentContextPath().pa
   	5. first: checks if the current iteration is the first one
   	6. last: checks if the current iteration is the last one
 
-
+<b>Conditional : </b>
+1. Elvis Operator -> condition ? "true" : "false"
+2. If-Unless -> th:if, th:unless
+3. Switch-Case
