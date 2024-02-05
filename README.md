@@ -433,6 +433,13 @@ return ResponseEntity.ok(ServletUriComponentsBuilder.fromCurrentContextPath().pa
 * Install it -> <a href="https://www.thymeleaf.org/eclipse-plugin-update-site/">LINK</a><br>
 
 <b>Thymeleaf Iteration :</b> <br>
-th:each -> capabale for traverse differnet data types ex- object -> iterable, object -> map (here -> means implements), array, single value as list 
+* th:each -> capabale for traverse differnet data types ex- object -> iterable, object -> map (here -> means implements), array, single value as list
+* status -> Thymeleaf also enables a useful mechanism to keep track of the iteration process via the status variable. The status variable provides the following properties:
+  	1. index: the current iteration index, starting with 0
+  	2. count: the number of elements processed so far
+  	3. size: the total number of elements in the list
+  	4. even/odd: checks if the current iteration index is even or odd
+  	5. first: checks if the current iteration is the first one
+  	6. last: checks if the current iteration is the last one
 
 
