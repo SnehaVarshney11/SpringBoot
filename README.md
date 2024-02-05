@@ -430,4 +430,9 @@ return ResponseEntity.ok(ServletUriComponentsBuilder.fromCurrentContextPath().pa
 ```
 <p th:text="${name}">
 ```
-* Install it -> <a href="https://www.thymeleaf.org/eclipse-plugin-update-site/">LINK</a>
+* Install it -> <a href="https://www.thymeleaf.org/eclipse-plugin-update-site/">LINK</a><br>
+
+<b>Thymeleaf Iteration :</b> <br>
+th:each -> capabale for traverse differnet data types ex- object -> iterable, object -> map (here -> means implements), array, single value as list 
+
+
